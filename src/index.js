@@ -8,32 +8,35 @@ const charCountNoSpacesElement = document.querySelector('li.metric:nth-child(3)'
 const numberCountElement = document.querySelector('li.metric:nth-child(4)');
 const totalNumberSumElement = document.querySelector('li.metric:nth-child(5)');
 const wordLengthAverageElement = document.querySelector('li.metric:nth-child(6)');
-const resetButton = document.querySelector('#reset-button');
+const resetButton = document.getElementById('reset-button');
 
 userInput.addEventListener ('input', () => {
   const text = userInput.value
 
   const wordCount = analyzer.getWordCount(text)
   const charCount = analyzer.getCharacterCount(text)
-  const numberCount = analyzer.getNumberCount(text)
   const charCountNoSpaces = analyzer.getCharacterCountExcludingSpaces(text)
-  const totalNumberSum = analyzer.getNumberCount(text)
+  const numberCount = analyzer.getNumberCount(text)
+  const totalNumberSum = analyzer.getNumberSum(text)
+  const wordLengthAverage = analyzer.getAverageWordLength(text)
+
 
   wordCountElement.textContent = `Recuento de palabras: ${wordCount}`
   charCountElement.textContent = `Recuento de caracteres: ${charCount}`
   numberCountElement.textContent = `Recuento de numeros: ${numberCount}`
   charCountNoSpacesElement.textContent = `Recuento caracteres sin espacios y signos de puntuación: ${charCountNoSpaces}`
   totalNumberSumElement.textContent = `Suma total de numeros: ${totalNumberSum}`
-  wordLengthAverageElement.textContent = `Longitud media de las palabras: ${totalNumberSum}`
+  wordLengthAverageElement.textContent = `Longitud media de las palabras: ${wordLengthAverage}`
 
 })
 
 
 resetButton.addEventListener ('click', () => {
+  userInput.value = ""
   wordCountElement.textContent = "Recuento de palabras:"
   charCountElement.textContent = "Recuento de caracteres:"
-  numberCountElement.textContent = "Recuento de numeros:"
   charCountNoSpacesElement.textContent = "Recuento caracteres sin espacios y signos de puntuación:"
-  userInput.textContent = ""
+  numberCountElement.textContent = "Recuento de numeros:"
+  totalNumberSumElement.textContent = "Suma total de numeros:"
 })
 

@@ -36,7 +36,8 @@ resetButton.addEventListener ('click', () => {
   wordCountElement.textContent = "Recuento de palabras:"
   charCountElement.textContent = "Recuento de caracteres:"
   charCountNoSpacesElement.textContent = "Recuento caracteres sin espacios y signos de puntuación:"
-  numberCountElement.textContent = "Recuento de numeros:"
-  totalNumberSumElement.textContent = "Suma total de numeros:"
+  numberCountElement.textContent = "Recuento de números:"
+  totalNumberSumElement.textContent = "Suma total de números:"
+  wordLengthAverageElement.textContent = "Longitud media de las palabras:"
 })
 
